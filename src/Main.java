@@ -133,12 +133,6 @@ class AppPanel extends UiKit.GradientPanel {
         card.add(host, BorderLayout.CENTER);
         add(card, BorderLayout.CENTER);
 
-        JLabel footer = UiKit.label("IC4302 \u2013 Programming III   \u2022   Department of ICT, University of Colombo",
-                12, Font.PLAIN, Theme.MUTED);
-        footer.setHorizontalAlignment(SwingConstants.CENTER);
-        footer.setBorder(new EmptyBorder(6, 0, 0, 0));
-        add(footer, BorderLayout.SOUTH);
-
         goTo(0);
     }
 
