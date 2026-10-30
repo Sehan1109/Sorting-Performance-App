@@ -6,7 +6,7 @@ An interactive, high-performance desktop application built in Java Swing designe
 
 ## 📌 Overview
 
-The **Sorting Algorithm Performance Evaluator** provides a streamlined 4-step wizard interface that allows users to upload custom CSV datasets, select numeric columns of any size, and benchmark five major sorting algorithms against identical input data in real time.
+The **Sorting Algorithm Performance Evaluator** provides a streamlined 4-step wizard interface that allows users to upload custom CSV datasets, select numeric columns, and benchmark five major sorting algorithms against identical input data in real time.
 
 With interactive animations, nanosecond-precision timing, automatic correctness verification, and responsive data visualization, the application makes empirical algorithm analysis intuitive and accessible.
 
@@ -34,7 +34,7 @@ With interactive animations, nanosecond-precision timing, automatic correctness 
   3. **Run Algorithms** (real-time progress monitoring)
   4. **View Results** (animated comparative bar chart & metrics)
 - **Robust CSV Parser**:
-  - Full support for RFC 4180 standards: quoted fields, commas inside text, and escaped quotes (`""`).
+  - Supports common CSV quoting rules, including commas inside quoted fields and escaped quotes (`""`). Quoted values spanning multiple lines are not supported.
   - Seamless handling of UTF-8 Byte Order Marks (BOM).
   - Automatically filters blank rows and validates numeric values.
 - **Accurate Benchmarking**:
@@ -120,10 +120,10 @@ graph TD
 Run the packaged executable JAR directly from your terminal or command prompt:
 
 ```bash
-java -jar SortingPerformanceApp.jar
+java -jar SortingEvaluator.jar
 ```
 
-*(On Windows, you can also double-click `SortingPerformanceApp.jar` if Java is associated with `.jar` files.)*
+*(On Windows, you can also double-click `SortingEvaluator.jar` if Java is associated with `.jar` files.)*
 
 ---
 
@@ -170,8 +170,8 @@ java -cp out AlgorithmSelfTest
 ## 📂 Source Code Architecture
 
 ```text
-SortingPerformanceApp/
-├── SortingPerformanceApp.jar     # Pre-compiled executable application
+Sorting-Performance-App-main/
+├── SortingEvaluator.jar           # Pre-compiled executable application
 ├── README.md                     # Application documentation
 └── src/                          # Java source code
     ├── Main.java                 # Entry point, MainFrame window & wizard orchestration
@@ -179,6 +179,6 @@ SortingPerformanceApp/
     ├── UiWidgets.java            # Visual widgets (animated bar chart, column list, progress panel)
     ├── SortingAlgorithms.java    # Pure implementations of the 5 sorting algorithms
     ├── PerformanceEvaluator.java # Benchmarking engine, timing logic, and test runner
-    ├── CsvLoader.java            # RFC-compliant CSV reader with quotation and BOM support
+    ├── CsvLoader.java            # CSV reader with quoted-field and UTF-8 BOM support
     └── CsvDataset.java           # Data structures, numeric column validation and extraction
 ```
